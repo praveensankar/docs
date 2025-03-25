@@ -17,6 +17,10 @@ description: "zk-revoke is a system that limits the amount of time a verifier ca
 
 ## How to Run?
 
+First, install goland and node js. 
+
+## <Tooltip tip="">Installing hardhat</Tooltip>
+
 Hardhat is used for running a local blokchain network. Run the following commands to install hardhat locally:
 
 > `npm install --save-dev hardhat`
@@ -25,9 +29,10 @@ Hardhat is used for running a local blokchain network. Run the following command
 
 Select Create an empty hardhat.config.js with your keyboard and hit enter.
 
-Install the following plugin:
+Install the following plugins:
 
-> `npm install --save-dev @nomicfoundation/hardhat-toolbox`
+> `npm install --save-dev @nomicfoundation/hardhat-toolbox`\
+> `npm install --save-dev @nomicfoundation/hardhat-ignition-ethers`
 
 Refer to the official hardhat tutorial if you encounter any errors in the installation of hardhat:
 
@@ -35,6 +40,18 @@ https://hardhat.org/tutorial/creating-a-new-hardhat-project
 
 ## Deploying smart contract from golang and interacting with with the contract
 
-install solc and abigen. Follow instructions given in https://goethereumbook.org/en/smart-contract-compile/
+install solc and abigen. Follow instructions given in https://goethereumbook.org/en/smart-contract-compile/. The abigen tool can be installed using the following command:
 
- 
+> `go install github.com/ethereum/go-ethereum/cmd/abigen@latest`
+
+Generate golang bindings for the smart contract:
+
+> `solc --abi revocationlist.sol -o bindings/build --overwrite`
+>
+> `solc --bin revocationlist.sol -o bindings/build --overwrite`
+>
+> `abigen --abi bindings/build/revocationlist.abi --pkg contracts --type RevocationList --out RevocationList.go`
+
+To deploy contract from golang:
+
+`abigen --bin=bindings/build/RevocationList.bin --abi=bindings/build/RevocationList.abi --pkg contracts -type=RevocationList --out=RevocationList.go`
