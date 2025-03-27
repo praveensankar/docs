@@ -28,16 +28,29 @@ Then install:
 
 Run the following commands to install hardhat locally:
 
-> `npm install --save-dev hardhat`
->
-> `npx hardhat init`
+<CodeGroup>
+
+```bash npm
+npm install --save-dev hardhat
+npx hardhat init
+```
+
+</CodeGroup>
+
 
 Select Create an empty hardhat.config.js with your keyboard and hit enter.
 
 Install the following plugins:
 
-> `npm install --save-dev @nomicfoundation/hardhat-toolbox`\
-> `npm install --save-dev @nomicfoundation/hardhat-ignition-ethers`
+<CodeGroup>
+
+```bash npm
+npm install --save-dev @nomicfoundation/hardhat-toolbox
+npm install --save-dev @nomicfoundation/hardhat-ignition-ethers
+```
+
+</CodeGroup>
+
 
 Refer to the official hardhat tutorial if you encounter any errors in the installation of hardhat:
 
@@ -46,13 +59,31 @@ https://hardhat.org/tutorial/creating-a-new-hardhat-project
 ## Installing solc and abigen
 
 Follow instructions given in https://goethereumbook.org/en/smart-contract-compile/. The abigen tool can be installed using the following command:
+<CodeGroup>
 
-> `go install github.com/ethereum/go-ethereum/cmd/abigen@latest`
+```bash golang
+go install github.com/ethereum/go-ethereum/cmd/abigen@latest
+```
+
+</CodeGroup>
+
+
 
 ## Run blockchain network locally
+<CodeGroup>
 
-> `npx hardhat node`
+```bash npm
+npx hardhat node
+```
+
+</CodeGroup>
+
 
 ## Run the golang program
+<CodeGroup>
 
-> `go build untrace`
+```bash golang
+go build untrace
+```
+
+</CodeGroup>
