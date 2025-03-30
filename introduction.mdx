@@ -37,6 +37,32 @@ npm install --global ganache
 </CodeGroup>
 
 The ganache version should be v7.x.x. If v6.x.x is installed, then upgrade it. Otherwise, deploying a smart contract would throw an opcode error.
+## <Tooltip tip="">Installing </Tooltip>hardhat
+
+Run the following commands to install hardhat locally:
+
+<CodeGroup>
+
+```bash npm
+npm install --save-dev hardhat
+npx hardhat init
+```
+
+</CodeGroup>
+Select Create an empty hardhat.config.js with your keyboard and hit enter.
+
+Install the following plugins:
+<CodeGroup>
+
+```bash npm
+npm install --save-dev @nomicfoundation/hardhat-toolbox
+npm install --save-dev @nomicfoundation/hardhat-ignition-ethers
+```
+
+</CodeGroup>
+Refer to the official hardhat tutorial if you encounter any errors in the installation of hardhat:
+
+https://hardhat.org/tutorial/creating-a-new-hardhat-project
 
 ## Installing solc and abigen
 
