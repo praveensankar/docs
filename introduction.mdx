@@ -21,22 +21,11 @@ Install the following languages: goland and node js.
 
 Then install:
 
-1. **Ganache** - Ganache is used for running a local blokchain network.
+1. **Hardhat** - hardhat is used for running a local blokchain network.
 2. **solc, abigen** -  solc and abigen are used for deploying smart contracts to hardhat network and interacting with the deployed smart contract.
 
-## <Tooltip tip="">Installing </Tooltip>Ganache
 
-Run the following commands to install ganache locally:
 
-<CodeGroup>
-
-```bash npm
-npm install --global ganache
-```
-
-</CodeGroup>
-
-The ganache version should be v7.x.x. If v6.x.x is installed, then upgrade it. Otherwise, deploying a smart contract would throw an opcode error.
 ## <Tooltip tip="">Installing </Tooltip>hardhat
 
 Run the following commands to install hardhat locally:
@@ -83,7 +72,6 @@ go install github.com/ethereum/go-ethereum/cmd/abigen@latest
 ```bash terminal
 npx hardhat node
 
-ganache  -l 30000000 --account="0x1c804da8039c8ce928391bc45dad7405615d42e2672fa9fc282cccce246c251a,100000000000000000000000000000" 
 ```
 
 </CodeGroup>
