@@ -36,6 +36,8 @@ npm install --global ganache
 
 </CodeGroup>
 
+The ganache version should be v7.x.x. If v6.x.x is installed, then upgrade it. Otherwise, deploying a smart contract would throw an opcode error.
+
 ## Installing solc and abigen
 
 Follow instructions given in https://goethereumbook.org/en/smart-contract-compile/. The abigen tool can be installed using the following command:
@@ -52,8 +54,8 @@ go install github.com/ethereum/go-ethereum/cmd/abigen@latest
 
 <CodeGroup>
 
-```bash npm
-ganache
+```bash terminal
+ganache  -l 30000000 --account="0x1c804da8039c8ce928391bc45dad7405615d42e2672fa9fc282cccce246c251a,100000000000000000000000000000" 
 ```
 
 </CodeGroup>
