@@ -24,8 +24,6 @@ Then install:
 1. **Hardhat** - hardhat is used for running a local blokchain network.
 2. **solc, abigen** -  solc and abigen are used for deploying smart contracts to hardhat network and interacting with the deployed smart contract.
 
-
-
 ## <Tooltip tip="">Installing </Tooltip>hardhat
 
 Run the following commands to install hardhat locally:
@@ -38,9 +36,11 @@ npx hardhat init
 ```
 
 </CodeGroup>
+
 Select Create an empty hardhat.config.js with your keyboard and hit enter.
 
 Install the following plugins:
+
 <CodeGroup>
 
 ```bash npm
@@ -49,6 +49,7 @@ npm install --save-dev @nomicfoundation/hardhat-ignition-ethers
 ```
 
 </CodeGroup>
+
 Refer to the official hardhat tutorial if you encounter any errors in the installation of hardhat:
 
 https://hardhat.org/tutorial/creating-a-new-hardhat-project
@@ -67,11 +68,13 @@ go install github.com/ethereum/go-ethereum/cmd/abigen@latest
 
 ## Run blockchain network locally
 
+Change the directory to blockchain_hardhat and run a local network:
+
 <CodeGroup>
 
 ```bash terminal
+cd blockchain_hardhat
 npx hardhat node
-
 ```
 
 </CodeGroup>
