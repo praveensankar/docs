@@ -17,12 +17,12 @@ description: "zk-revoke is a system that limits the amount of time a verifier ca
 
 ## Prerequisites
 
-Install the following languages: goland and node js.
+Install the following languages: GoLand and Node.js.
 
 Then install:
 
-1. **Hardhat** - hardhat is used for running a local blokchain network.
-2. **solc, abigen** -  solc and abigen are used for deploying smart contracts to hardhat network and interacting with the deployed smart contract.
+1. **Hardhat** - Hardhat is used to run a local blockchain network.
+2. **Solc, abigen** -  Solc and abigen are used for deploying smart contracts to the hardhat network and interacting with the deployed smart contract.
 
 ## <Tooltip tip="">Installing </Tooltip>hardhat
 
@@ -32,12 +32,9 @@ Run the following commands to install hardhat locally:
 
 ```bash npm
 npm install --save-dev hardhat
-npx hardhat init
 ```
 
 </CodeGroup>
-
-Select Create an empty hardhat.config.js with your keyboard and hit enter.
 
 Install the following plugins:
 
@@ -56,7 +53,7 @@ https://hardhat.org/tutorial/creating-a-new-hardhat-project
 
 ## Installing solc and abigen
 
-Follow instructions given in https://goethereumbook.org/en/smart-contract-compile/. The abigen tool can be installed using the following command:
+Follow the instructions given in https://goethereumbook.org/en/smart-contract-compile/. The abigen tool can be installed using the following command:
 
 <CodeGroup>
 
@@ -66,7 +63,7 @@ go install github.com/ethereum/go-ethereum/cmd/abigen@latest
 
 </CodeGroup>
 
-## Run blockchain network locally
+## Run a local blockchain network
 
 Change the directory to blockchain_hardhat and run a local network:
 
