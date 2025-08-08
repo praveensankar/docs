@@ -1,97 +1,122 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: "Quickstart"
+description: "Start building awesome documentation in under 5 minutes"
 ---
 
-## Setup your development
+## Configure the parameters
 
-Learn how to update your docs locally and deploy them to the public.
+The config.json file is used to configure the parameters. A sample conf file is given below:
 
-### Edit and preview
-
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 
-    1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `docs.json` is): ``` mintlify dev ```
-    <Note>
-      If you’re currently using the legacy ```mint.json``` configuration file, please update the Mintlify CLI:
+```json expandable
 
 
-      ```npm i -g mintlify@latest```
-      And run the new upgrade command in your docs repository:
+{
+  "contract" : {
+    "address" : "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "gasLimit" : "30000000",
+    "gasPrice" : "2000000000",
+    "_comment": "gas price is the average price on Aug 8, 2025 (https://etherscan.io/gastracker#chart_gasprice)"
+  },
 
-      ```mintlify upgrade```
-      You should now be using the new ```docs.json``` configuration file. Feel free to delete the ```mint.json``` file from your repository.
-    </Note>
-  </Accordion>
-</AccordionGroup>
+  "issuer" : {
+    "name": "university",
+    "address": "<ip_address>:8000",
+    "totalVCs": "1",
+    "numberOfTokensInCircuit": "1",
+    "maxNumberOfTokenBlocksInVP": "2",
+    "revokedVCs": "2",
+    "revocation_rate_base": "15",
+    "revocation_rate_step": "1",
+    "revocation_rate_end": "16",
+    "initialTimestamp": "",
+    "duration": "10",
+    "totalEpochs": "10",
+    "mimimumExpiryDurationOfVC": "365",
+    "starting_epoch": 0,
+    "usePreGeneratedKeysAndVCs": "false"
+  },
+  "holder" : {
+    "name": "bob",
+    "maximumNumberOfHolderObjects": "100",
+    "numberOfHolders": "20"
+  },
+  "verifier" : {
+    "name": "employer"
+  },
+  "blockchain" : {
+    "rpcEndpoint" : "http://127.0.0.1:8545/",
+    "wsEndPoint" : "ws://127.0.0.1:8545/",
+    "account" : "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",
+    "privateKey" : "df57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e"
+  },
 
-### Deploy your changes
+  "logger" : {
+    "env" : "dev",
+    "output": "console",
+    "filename": "logs",
+    "_comment1": "ouput:<console> - for printing in console, <file> - for writing to file",
+    "_comment" : "env is used to configure the logger level at zapper. <dev> for devlopment, <prod> for production "
+  },
+  "mode" : {
+    "debug" : "false"
+  },
+  "token" : {
+    "numberOfTokensToStore": ["1","10","100","1000","10000","100000"]
+  },
+  "run" : {
+    "flow" : "false",
+    "circuit": "false",
+    "irma_test" : "false",
+    "compute_final_result" : "false",
+    "compute_token_storage_cost": "false",
+    "vc_test": "false",
+    "zkp_test": "false",
+    "crypto_test": "false",
+    "generate_vcs": "false"
+  },
+  "benchmark": {
+    "setup": "true",
+    "issuance": "true",
+    "refresh": "true",
+    "revocation": "true",
+    "presentation_verification": "true",
+    "irma_setup": "false",
+    "irma_issuance": "false",
+    "irma_revocation_presentation_verification": "false",
+    "irma_presentation_and_verification": "false",
+    "max_issued_vcs": "1000000",
+    "m": 365,
+    "max_vp_validity": 60,
+    "k": 1,
+    "revocation_rate": "1",
+    "number_of_experiments": "4",
+    "duration": 10000
+  }
+}
+```
 
-<AccordionGroup>
+1. "max_issued_vcs" - denotes the maximum number of VCs an issuer would issue
+2. "m" - denotes the expiration period 
+3. "max_vp_validity" - denotes the maximum validity period of VPs
+4. "k" - number of tokens that can be proven using a single ZK proof (related to optimization)
+5. "duration" - epoch duration.
+6. "revocation_rate" - the percentage of VCs revoked till the expiration period. Each epoch, the following number of VCs would be revoked: $(\mathsf{revocation \ rate} * \mathsf{max \ issued \ vcs})/\mathsf{m}$
+7. 
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+### Modify the parameters needed for benchmarking
 
-</AccordionGroup>
+Set the following to true to do bencharmking or set false otherwise:
 
-## Update your docs
+```json expandable
+	"setup": "true",
+    "issuance": "true",
+    "refresh": "true",
+    "revocation": "true",
+    "presentation_verification": "true",
+    "irma_setup": "false",
+    "irma_issuance": "false",
+    "irma_revocation_presentation_verification": "false",
+    "irma_presentation_and_verification": "false",
+```
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
-
-<CardGroup>
-
-<Card title="Add Content With MDX" icon="file" href="/essentials/markdown">
-  Add content to your docs with MDX syntax.
-</Card>
-
-<Card
-  title="Add Code Blocks"
-  icon="square-code"
-  href="/essentials/code"
->
-  Add code directly to your docs with syntax highlighting.
-</Card>
-
-<Card
-  title="Add Images"
-  icon="image"
-  href="/essentials/images"
->
-  Add images to your docs to make them more engaging.
-</Card>
-
-<Card
-  title="Add Custom Components"
-  icon="puzzle-piece"
-  href="/essentials/reusable-snippets"
->
-  Add templates to your docs to make them more reusable.
-</Card>
-
-</CardGroup>
+### 
