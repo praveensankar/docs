@@ -4,15 +4,14 @@ description: "zk-revoke is a system that limits the amount of time a verifier ca
 ---
 
 <img
-  className="block dark:hidden"
-  src="/images/hero-light.png"
-  alt="Hero Light"
-/>
-
-<img
   className="hidden dark:block"
   src="/images/hero-dark.png"
   alt="Hero Dark"
+/>
+<img
+  className="dark:hidden"
+  src="/images/hero-light.png"
+  alt="Hero Light"
 />
 
 ## Prerequisites
@@ -24,7 +23,7 @@ Then install:
 1. **Hardhat** - Hardhat is used to run a local blockchain network.
 2. **Solc, abigen** -  Solc and abigen are used for deploying smart contracts to the hardhat network and interacting with the deployed smart contract.
 
-## <Tooltip tip="">Installing </Tooltip>hardhat
+## <Tooltip>Installing </Tooltip>hardhat
 
 Run the following commands to install hardhat locally:
 
@@ -81,7 +80,7 @@ npx hardhat node
 <CodeGroup>
 
 ```bash golang
-go build untrace
+go run untrace
 ```
 
 </CodeGroup>
